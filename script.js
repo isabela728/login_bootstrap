@@ -3,16 +3,32 @@ let cadastro = false;
     const elTitulo = document.getElementById("titulo");
     const elBotao = document.getElementById("botao-envio");
     const elToggle = document.getElementById("toggle");
-    const elPergunta = document.getElementById("texto-pergunta");
+    const elToggleSpan = elToggle.querySelector("span");
+    const elToggleP = elToggle.querySelector("p");
     const elMensagem = document.getElementById("mensagem");
+    const elSenhaInput = document.getElementById("senha");
+    const elToggleSenha = document.getElementById("toggle-senha");
+    const elIconSenha = elToggleSenha.querySelector("i");
+    
+    elToggleSenha.onclick = () => {
+        if (elSenhaInput.type === "password") {
+            elSenhaInput.type = "text";
+            elIconSenha.className = "bi bi-eye-slash";
+            elToggleSenha.setAttribute("aria-label", "Ocultar senha");
+        } else {
+            elSenhaInput.type = "password";
+            elIconSenha.className = "bi bi-eye";
+            elToggleSenha.setAttribute("aria-label", "Mostrar senha");
+        }
+    };
     
     elToggle.onclick = () => {
         cadastro = !cadastro;
         
         elTitulo.innerText = cadastro ? "Cadastro" : "Login";
         elBotao.innerText = cadastro ? "Cadastrar" : "Entrar";
-        elPergunta.innerText = cadastro ? "Já tem conta?" : "Não tem conta?";
-        elToggle.innerText = cadastro ? "Faça Login!" : "Cadastre-se";
+        elToggleSpan.innerText = cadastro ? "Faça Login!" : "Cadastre-se!";
+        elToggleP.innerHTML = cadastro ? "Já tem conta? <span class=\"text-primary text-decoration-underline cursor-pointer\" role=\"button\">Faça Login!</span>" : "Não tem conta? <span class=\"text-primary text-decoration-underline cursor-pointer\" role=\"button\">Cadastre-se!</span>";
         
         elMensagem.innerHTML = "";
     };

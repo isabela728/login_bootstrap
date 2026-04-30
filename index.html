@@ -4,6 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tela de login</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.4/font/bootstrap-icons.css" rel="stylesheet">
 </head>
 <body class="bg-light min-vh-100 d-flex align-items-center">
     
@@ -22,7 +23,12 @@
 
                 <div id="c-senha" class="conjunto mb-4">
                     <label for="senha" class="form-label">Senha</label>
-                    <input type="password" class="form-control" id="senha" placeholder="Digite sua senha" required>
+                    <div class="position-relative">
+                        <input type="password" class="form-control pe-5" id="senha" placeholder="Digite sua senha" required>
+                        <button class="btn position-absolute top-50 end-0 translate-middle-y" type="button" id="toggle-senha" aria-label="Mostrar senha">
+                            <i class="bi bi-eye"></i>
+                        </button>
+                    </div>
                 </div>
 
                 <button id="botao-envio" type="submit" class="btn btn-primary w-100 py-2">Entrar</button>
@@ -31,7 +37,7 @@
             <div id="mensagem" class="text-center mt-3"></div>
 
             <div class="toggle" id="toggle">
-                <p class="text-center mt-4">Não tem conta? Cadastre-se!</p>
+                <p class="text-center mt-4">Não tem conta? <span class="text-primary text-decoration-underline cursor-pointer" role="button">Cadastre-se!</span></p>
             </div>
         </div>
     </main>
